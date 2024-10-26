@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="490.0" prefWidth="685.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookstore.bookstore.fxControllers.MainWindow">
+   <children>
+      <TabPane fx:id="tabPane" prefHeight="490.0" prefWidth="753.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="shopTab" text="Shop">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="shopProducts" layoutX="14.0" layoutY="26.0" prefHeight="390.0" prefWidth="307.0">
+                           <contextMenu>
+                              <ContextMenu>
+                                  <items>
+                                  <MenuItem mnemonicParsing="false" onAction="#viewProduct" text="View product" />
+                                </items>
+                              </ContextMenu>
+                           </contextMenu></ListView>
+                        <ListView fx:id="viewProducts" layoutX="377.0" layoutY="26.0" prefHeight="200.0" prefWidth="345.0" />
+                        <Button layoutX="686.0" layoutY="243.0" mnemonicParsing="false" onAction="#buyProducts" styleClass="btn-custom" stylesheets="@styles/styles.css" text="Buy" />
+                        <Button fx:id="leaveReview" layoutX="14.0" layoutY="422.0" mnemonicParsing="false" onAction="#LeaveAReview" styleClass="btn-custom" stylesheets="@styles/styles.css" text="Leave a review" />
+                        <Button layoutX="377.0" layoutY="243.0" mnemonicParsing="false" onAction="#addToCart" styleClass="btn-custom" stylesheets="@styles/styles.css" text="Add To Cart" />
+                        <Button layoutX="517.0" layoutY="243.0" mnemonicParsing="false" onAction="#removeFromCart" styleClass="btn-custom" stylesheets="@styles/styles.css" text="Remove From Cart" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="productTab" text="Product">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="productAdminList" layoutX="14.0" layoutY="35.0" onMouseClicked="#loadProduct" prefHeight="367.0" prefWidth="228.0">
+                           <contextMenu>
+                              <ContextMenu>
+                                <items>
+                                  <MenuItem mnemonicParsing="false" onAction="#viewProduct" text="View" />
+                                </items>
+                              </ContextMenu>
+                           </contextMenu></ListView>
+                        <TextField fx:id="productTitle" layoutX="286.0" layoutY="47.0" promptText="Product title" />
+                        <TextArea fx:id="productDescription" layoutX="286.0" layoutY="80.0" prefHeight="200.0" prefWidth="200.0" promptText="Product description" />
+                        <DatePicker fx:id="bookPublicDate" layoutX="526.0" layoutY="47.0" prefHeight="25.0" prefWidth="174.0" promptText="Publication Date" />
+                        <TextField fx:id="productQty" layoutX="286.0" layoutY="292.0" promptText="Qty" />
+                        <TextField fx:id="productWeight" layoutX="286.0" layoutY="329.0" promptText="Weight" />
+                        <RadioButton fx:id="bookRadio" layoutX="286.0" layoutY="14.0" mnemonicParsing="false" onAction="#disableFields" text="Book" toggleGroup="$productType">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="productType" />
+                           </toggleGroup></RadioButton>
+                        <RadioButton fx:id="accessoriesRadio" layoutX="377.0" layoutY="14.0" mnemonicParsing="false" onAction="#disableFields" text="Accessories" toggleGroup="$productType" />
+                        <RadioButton fx:id="stationeryRadio" layoutX="502.0" layoutY="14.0" mnemonicParsing="false" onAction="#disableFields" text="Stationery" toggleGroup="$productType" />
+                        <TextField fx:id="bookAuthor" layoutX="526.0" layoutY="80.0" prefHeight="25.0" prefWidth="174.0" promptText="Author" />
+                        <TextField fx:id="accMaterial" layoutX="526.0" layoutY="194.0" prefHeight="25.0" prefWidth="174.0" promptText="Material" />
+                        <TextField fx:id="accColour" layoutX="526.0" layoutY="231.0" prefHeight="25.0" prefWidth="174.0" promptText="Colour" />
+                        <TextField fx:id="statBrand" layoutX="526.0" layoutY="268.0" prefHeight="25.0" prefWidth="174.0" promptText="Brand" />
+                        <Button fx:id="addProduct" layoutX="286.0" layoutY="390.0" mnemonicParsing="false" onAction="#createProduct" styleClass="btn-custom" stylesheets="@styles/styles.css" text="Add" />
+                        <Button fx:id="updateProduct" layoutX="459.0" layoutY="390.0" mnemonicParsing="false" onAction="#updateProduct" styleClass="btn-custom" stylesheets="@styles/styles.css" text="Update" />
+                        <Button fx:id="deleteProduct" layoutX="649.0" layoutY="390.0" mnemonicParsing="false" onAction="#deleteProduct" styleClass="btn-custom" stylesheets="@styles/styles.css" text="Delete" />
+                        <TextField fx:id="accCategory" layoutX="526.0" layoutY="155.0" prefHeight="25.0" prefWidth="174.0" promptText="Category" />
+                        <TextField fx:id="statType" layoutX="526.0" layoutY="304.0" prefHeight="25.0" prefWidth="174.0" promptText="Type" />
+                        <ComboBox fx:id="bookGenre" layoutX="526.0" layoutY="116.0" prefHeight="25.0" prefWidth="174.0" promptText="Genre" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="usersTab" text="Users">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="461.0" prefWidth="730.0">
+                     <children>
+                        <TableView fx:id="managerTable" prefHeight="194.0" prefWidth="753.0">
+                          <columns>
+                            <TableColumn fx:id="managerID" prefWidth="75.0" text="ID" />
+                            <TableColumn fx:id="managerLogin" prefWidth="75.0" text="Login" />
+                              <TableColumn fx:id="managerName" prefWidth="75.0" text="Name" />
+                              <TableColumn fx:id="managerSurname" prefWidth="75.0" text="Surname" />
+                              <TableColumn fx:id="managerPassword" prefWidth="75.0" text="Password" />
+                              <TableColumn fx:id="managerAdmin" prefWidth="75.0" text="Admin" />
+                              <TableColumn fx:id="managerDate" prefWidth="75.0" text="Employment Date" />
+                              <TableColumn fx:id="dummyColManager" prefWidth="75.0" text="Action" />
+                          </columns>
+                        </TableView>
+                        <TableView fx:id="customerTable" layoutY="194.0" prefHeight="205.0" prefWidth="753.0">
+                          <columns>
+                            <TableColumn fx:id="custID" prefWidth="75.0" text="ID" />
+                            <TableColumn fx:id="custLogin" prefWidth="75.0" text="Login" />
+                              <TableColumn fx:id="custName" prefWidth="75.0" text="Name" />
+                              <TableColumn fx:id="custSurname" prefWidth="75.0" text="Surname" />
+                              <TableColumn fx:id="custPass" prefWidth="75.0" text="Password" />
+                              <TableColumn fx:id="custCard" prefWidth="75.0" text="Card No" />
+                              <TableColumn fx:id="custDelAddr" prefWidth="75.0" text="Delivery Addr" />
+                              <TableColumn fx:id="custBillAddr" prefWidth="75.0" text="Bill Addr" />
+                              <TableColumn fx:id="customerBirth" prefWidth="75.0" text="Birth Date" />
+                              <TableColumn fx:id="dummyColCustomer" prefWidth="75.0" text="Action" />
+                          </columns>
+                        </TableView>
+                        <Button layoutX="326.0" layoutY="422.0" mnemonicParsing="false" onAction="#createManager" styleClass="btn-custom" stylesheets="@styles/styles.css" text="Create Manager" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="ordersTab" text="Orders">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="deleteOrdersButton" layoutX="675.0" layoutY="399.0" mnemonicParsing="false" onAction="#deleteOrder" styleClass="btn-custom" stylesheets="@styles/styles.css" text="Delete" />
+                        <TextField fx:id="nrOfItemsFilter" layoutX="346.0" layoutY="31.0" prefHeight="29.0" prefWidth="379.0" promptText="Filter by qty" />
+                        <DatePicker fx:id="dateOrderStart" layoutX="347.0" layoutY="84.0" />
+                        <Button fx:id="filterOrdersButton" layoutX="679.0" layoutY="122.0" mnemonicParsing="false" onAction="#filterOrders" styleClass="btn-custom" stylesheets="@styles/styles.css" text="Filter" />
+                        <TreeView fx:id="orderChat" layoutX="344.0" layoutY="169.0" prefHeight="200.0" prefWidth="384.0" />
+                        <ListView fx:id="ordersList" layoutX="14.0" layoutY="18.0" onMouseClicked="#loadChat" prefHeight="412.0" prefWidth="304.0" />
+                        <Button layoutX="346.0" layoutY="400.0" mnemonicParsing="false" onAction="#addMessage" styleClass="btn-custom" stylesheets="@styles/styles.css" text="Add Message" />
+                        <Button layoutX="462.0" layoutY="400.0" mnemonicParsing="false" onAction="#reply" styleClass="btn-custom" stylesheets="@styles/styles.css" text="Reply" />
+                        <DatePicker fx:id="dateOrderFinish" layoutX="551.0" layoutY="84.0" />
+                        <TextField fx:id="filterManagerId" layoutX="347.0" layoutY="124.0" prefHeight="25.0" prefWidth="174.0" promptText="Filter by Manager ID" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="warehousesTab" text="Warehouses">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ComboBox fx:id="warehouseCity" layoutX="302.0" layoutY="29.0" prefWidth="150.0" promptText="City" />
+                        <TextField fx:id="warehouseAddress" layoutX="303.0" layoutY="78.0" promptText="Address" />
+                        <ListView fx:id="warehouseList" layoutX="33.0" layoutY="30.0" onMouseClicked="#loadProducts" prefHeight="401.0" prefWidth="238.0">
+                           <contextMenu>
+                              <ContextMenu>
+                                <items>
+                                  <MenuItem mnemonicParsing="false" onAction="#viewWarehouse" text="View" />
+                                </items>
+                              </ContextMenu>
+                           </contextMenu>
+                        </ListView>
+                        <Button layoutX="303.0" layoutY="406.0" mnemonicParsing="false" onAction="#addWarehouse" styleClass="btn-custom" stylesheets="@styles/styles.css" text="Add" />
+                        <Button layoutX="680.0" layoutY="406.0" mnemonicParsing="false" onAction="#deleteWarehouse" styleClass="btn-custom" stylesheets="@styles/styles.css" text="Delete" />
+                        <TreeView fx:id="warehouseProducts" layoutX="302.0" layoutY="131.0" prefHeight="200.0" prefWidth="429.0" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

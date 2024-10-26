@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="392.0" prefWidth="518.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookstore.bookstore.fxControllers.Registration">
+   <children>
+      <TextField fx:id="login" layoutX="51.0" layoutY="26.0" promptText="Enter login:" />
+      <PasswordField fx:id="pswd" layoutX="51.0" layoutY="70.0" promptText="Enter password:" />
+      <PasswordField fx:id="repeatPswd" layoutX="51.0" layoutY="117.0" promptText="Repeat password:" />
+      <TextField fx:id="name" layoutX="51.0" layoutY="163.0" promptText="Name:" />
+      <TextField fx:id="surname" layoutX="51.0" layoutY="210.0" promptText="Surname:" />
+      <DatePicker fx:id="birthDate" layoutX="51.0" layoutY="260.0" promptText="Birth date:" />
+      <RadioButton fx:id="customer" layoutX="51.0" layoutY="306.0" mnemonicParsing="false" text="Customer" />
+      <RadioButton fx:id="manager" layoutX="156.0" layoutY="306.0" mnemonicParsing="false" text="Manager" />
+      <TextField fx:id="deliveryAddress" layoutX="325.0" layoutY="26.0" promptText="Delivery address:" />
+      <TextField fx:id="billAddress" layoutX="325.0" layoutY="70.0" promptText="Billing address:" />
+      <TextField fx:id="cardNo" layoutX="325.0" layoutY="117.0" promptText="Card No:" />
+      <TextField fx:id="uniqueID" layoutX="325.0" layoutY="163.0" promptText="Unique ID:" />
+      <TextField fx:id="mcID" layoutX="325.0" layoutY="210.0" promptText="Medical certificate ID:" />
+      <CheckBox fx:id="isAdmin" layoutX="325.0" layoutY="264.0" mnemonicParsing="false" text="is Admin" />
+      <DatePicker fx:id="employmentDate" layoutX="325.0" layoutY="302.0" promptText="Employment date:" />
+      <Button fx:id="returnToLogin" layoutX="51.0" layoutY="354.0" mnemonicParsing="false" onAction="#returnToLogin" styleClass="btn-custom" stylesheets="@styles/styles.css" text="Return" />
+      <Button layoutX="412.0" layoutY="354.0" mnemonicParsing="false" onAction="#createUser" styleClass="btn-custom" stylesheets="@styles/styles.css" text="Create User" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,5 @@
+package com.bookstore.bookstore.model;
+
+public enum Genre {
+    DRAMA, FICTION, FANTASY, DYSTOPIAN, THRILLER, MYSTERY, SCIENCE_FICTION, ESPIONAGE, HORROR, HISTORICAL, NON_FICTION
+}
